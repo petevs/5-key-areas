@@ -1,7 +1,10 @@
-export default function page() {
+import ResetPasswordForm from './components/ResetPasswordForm';
+
+export default async function page({ searchParams }) {
+
     return (
-        <div>
-            This is the page to update password
+        <div className='max-w-md'>
+            <ResetPasswordForm />
         </div>
     )
 }

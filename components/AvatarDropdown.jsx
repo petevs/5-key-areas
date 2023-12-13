@@ -37,7 +37,11 @@ export default function AvatarDropdown() {
                 <DropdownMenuSeparator />
 
                 <DropdownMenuItem>Dashboard</DropdownMenuItem>
-                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                    <Link href='/settings' className='w-full hover:cursor-pointer'>
+                        Settings
+                    </Link>
+                </DropdownMenuItem>
 
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>

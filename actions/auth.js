@@ -14,3 +14,13 @@ export const handleSignOut = async (path) => {
     await supabase.auth.signOut()
     revalidatePath(path)
 }
+
+export const updatePassword = async (password) => {
+
+    const cookieStore = cookies()
+    const supabase = createClient(cookieStore)
+    const { user, error } = await supabase.auth.updateUser({ password: password })
+    if (error) throw error
+    
+    return true
+}
