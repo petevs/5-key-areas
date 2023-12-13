@@ -2,6 +2,9 @@
 
 import { updatePassword } from '@/actions/auth'
 import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 export default function ResetPasswordForm() {
 
@@ -33,10 +36,10 @@ export default function ResetPasswordForm() {
               onSubmit={handleSubmit}
             >
 
-                <label className="text-md" htmlFor="password">
+                <Label className="text-md" htmlFor="password">
                 Password
-              </label>
-              <input
+              </Label>
+              <Input
                 className="rounded-md px-4 py-2 bg-inherit border mb-6"
                 type="password"
                 name="password"
@@ -44,22 +47,23 @@ export default function ResetPasswordForm() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoComplete='off'
               />
 
 
-                <button 
-                    className="bg-black text-white rounded-md px-4 py-2 text-foreground mb-2 justify-self-start"
+                <Button 
+                    className="justify-self-start h-8 rounded-full text-sm"
                     type='submit'
                 >
                         {
-                            loading ? 'Updating...' : 'Update password'
+                            loading ? 'Updating...' : 'Update'
                         }
-                </button>
+                </Button>
             </form>
 
             {
                 error && (
-                    <div className='text-red-500'>
+                    <div className='text-destructive pt-4 text-sm'>
                         {error.message}
                     </div>
                 )
@@ -67,7 +71,7 @@ export default function ResetPasswordForm() {
 
             {
                 successMessage && (
-                    <div className='text-primary'>
+                    <div className='text-primary pt-4 text-sm'>
                         {successMessage}
                     </div>
                 )

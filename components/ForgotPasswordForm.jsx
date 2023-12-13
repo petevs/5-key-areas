@@ -17,7 +17,7 @@ export default function ForgotPasswordForm({ searchParams }) {
         const { error } = await supabase.auth.resetPasswordForEmail(
           email,
           {
-            redirectTo: 'http://localhost:3000/auth/callback?next=/settings/update-password'
+            redirectTo: 'http://localhost:3000/auth/callback?next=/reset-password'
           })
     
         if (error) {
