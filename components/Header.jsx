@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import Link from 'next/link'
-import AvatarDropdown from '@/components/AvatarDropdown'
+import AuthButton from '@/components/AuthButton'
 
 export default function Header() {
     return (
@@ -25,7 +25,7 @@ export default function Header() {
                     </Link>
                 </Button>
 
-                <AvatarDropdown />
+                <AuthButton />
             </div>
         </div>
     )
