@@ -1,6 +1,8 @@
 import { cookies } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
+import NarrowContainer from '@/components/NarrowContainer'
+import Chart from '@/components/Chart'
 
 export default async function page() {
 
@@ -22,11 +24,12 @@ export default async function page() {
         .order('created_at', { ascending: false })
 
 
+
     return (
-        <div>
-            <pre>
-                {JSON.stringify(entries, null, 2)}
-            </pre>
-        </div>
+        <NarrowContainer>
+            <Chart 
+                data={entries}
+            />
+        </NarrowContainer>
     )
 }
