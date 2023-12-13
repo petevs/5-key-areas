@@ -17,15 +17,15 @@ export default function ForgotPasswordForm({ searchParams }) {
         const { error } = await supabase.auth.resetPasswordForEmail(
           email,
           {
-            redirectTo: 'https://example.com/reset-password'
+            redirectTo: 'http://localhost:3000/auth/callback?next=/settings/update-password'
           })
     
         if (error) {
             console.log(error)
-          return redirect('/forgot-password?message=Could not find a user with that email.')
+          return redirect('/forgot-password?message=Sorry we could not find your email.')
         }
     
-        return redirect('/')
+        return redirect('/forgot-password/check-email')
       }
 
     return (
@@ -63,6 +63,12 @@ export default function ForgotPasswordForm({ searchParams }) {
                         Send reset link
                 </button>
             </form>
+
+            {searchParams?.message && (
+                <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
+                    {searchParams.message}
+                </p>
+            )}
             
         </div>
     )

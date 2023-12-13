@@ -12,7 +12,7 @@ import { Menu } from "lucide-react"
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from "next/navigation"
-// import { handleSignOut } from '@/actions/auth'
+import { handleSignOut } from '@/actions/auth'
   
 
 export default function AvatarDropdown() {
@@ -42,7 +42,7 @@ export default function AvatarDropdown() {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                     <button 
-                        // onClick={() => handleSignOut(path)} 
+                        onClick={() => handleSignOut(path)} 
                         className='w-full text-left'
                     >
                         Sign out
