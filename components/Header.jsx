@@ -17,7 +17,7 @@ export default function Header() {
 
             <div className='flex gap-4 items-center'>
                 <Button variant='ghost' className='rounded-full border' asChild>
-                    <Link href='/new-entry'>
+                    <Link href='/dashboard/new-entry'>
                         <div className='flex items-center gap-1'>
                             <Plus size={14} />
                             New Entry

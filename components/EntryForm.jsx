@@ -16,6 +16,8 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { addNewEntry } from '@/actions/general'
+
 
 const formSchema = z.object({
   health: z.number().min(1).max(5),
@@ -71,7 +73,16 @@ export default function EntryForm() {
 
     function onSubmit() {
 
-        console.log(form.getValues())
+        const values = form.getValues()
+
+        addNewEntry({
+            health: values.health,
+            work: values.work,
+            play: values.play,
+            love: values.love,
+            self_respect: values.selfRespect
+        })
+        
     }
 
   return (

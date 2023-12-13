@@ -36,7 +36,12 @@ export default function AvatarDropdown() {
                 <DropdownMenuLabel>email@email.com</DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
-                <DropdownMenuItem>Dashboard</DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                    <Link href='/dashboard' className='w-full hover:cursor-pointer'>
+                        Dashboard
+                    </Link>
+                </DropdownMenuItem>
+                
                 <DropdownMenuItem asChild>
                     <Link href='/settings' className='w-full hover:cursor-pointer'>
                         Settings

@@ -14,13 +14,13 @@ export default async function layout({children}) {
     } = await supabase.auth.getUser()
 
     if(!user) {
-        return redirect('/auth/login')
+        return redirect('/signin')
     }
 
 
 
     return (
-        <NarrowContainer>
+        <NarrowContainer innerClassName='max-w-3xl'>
             <h1 className='text-3xl font-bold'>Settings</h1>
 
             <div className='pt-8'>
