@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
+import { Slider } from "@/components/ui/slider"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -17,10 +18,42 @@ import {
 import { Input } from "@/components/ui/input"
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  health: z.number().min(1).max(5),
+  work: z.number().min(1).max(5),
+  play: z.number().min(1).max(5),
+  love: z.number().min(1).max(5),
+  selfRespect: z.number().min(1).max(5)
 })
+
+
+const inputs = [
+    {
+        name: 'health',
+        label: 'Health',
+        description: 'How\'s your body and brain feeling?',
+    },
+    {
+        name: 'work',
+        label: 'Work',
+        description: 'How\'s your work life?',
+    },
+    {
+        name: 'play',
+        label: 'Play',
+        description: 'Without this, u sad. How\'s your play?',
+    },
+    {
+        name: 'love',
+        label: 'Love',
+        description: 'Without this, u lonely. Got friends? Family?',
+    },
+    {
+        name: 'selfRespect',
+        label: 'Self Respect',
+        description: 'Without this, u don\’t like u. So, how ya feeling about yourself?',
+    }
+]
+
 
 export default function EntryForm() {
   
@@ -28,37 +61,56 @@ export default function EntryForm() {
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-          username: "",
+            health: 3,
+            work: 3,
+            play: 3,
+            love: 3,
+            selfRespect: 3
         },
       })
 
-      function onSubmit(values) {
-        console.log(values)
-      }
+    function onSubmit() {
+
+        console.log(form.getValues())
+    }
 
   return (
     <Form {...form}>
-      <form className="space-y-8">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input 
-                    placeholder="shadcn" 
-                    {...field}
-                    autoComplete='off' 
+      <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
+
+        {
+            inputs.map(({name, description, label}) => (
+                <FormField
+                    key={name}
+                    control={form.control}
+                    name={name}
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>
+                                <div className='flex justify-between items-center pb-4'>
+                                    <span>{label}</span>
+                                    <span>{field.value} / 5</span>
+                                </div>
+                            </FormLabel>
+                            <FormControl>
+                                <Slider 
+                                    min={1}
+                                    max={5} 
+                                    step={1}
+                                    value={[field.value]}
+                                    onValueChange={([value]) => field.onChange(value)} 
+                                />
+                            </FormControl>
+                            <FormDescription>
+                                {description}
+                            </FormDescription>
+                            <FormMessage />
+                        </FormItem>
+                    )}
                 />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+            ))
+        }
+
         <Button type="submit">Submit</Button>
       </form>
     </Form>
