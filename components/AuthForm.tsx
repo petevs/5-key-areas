@@ -114,14 +114,23 @@ export default function AuthForm(props: Props) {
                 required
               />
 
-                        <button 
-                          className="bg-black text-white rounded-md px-4 py-2 text-foreground mb-2"
-                          formAction={formType === 'login' ? signIn : signUp}
-                        >
-                            {
-                                formType === 'login' ? 'Sign in' : 'Sign up'
-                            }
-                      </button>
+              <button 
+                className="bg-black text-white rounded-md px-4 py-2 text-foreground mb-2"
+                formAction={formType === 'login' ? signIn : signUp}
+              >
+                    {
+                        formType === 'login' ? 'Sign in' : 'Sign up'
+                    }
+              </button>
+
+              {/* if signin then show forgot password button */}
+              {
+                  formType === 'login' && (
+                    <Link href="/forgot-password" className='text-gray-500 text-sm text-center hover:text-primary'>
+                            Forgot password?
+                    </Link>
+                  )
+              }
 
               {searchParams?.message && (
                 <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
