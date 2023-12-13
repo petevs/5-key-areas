@@ -1,7 +1,14 @@
-export default function page() {
+import AuthForm from "@/components/AuthForm"
+import NarrowContainer from "@/components/NarrowContainer"
+
+
+export default function page({ searchParams }) {
     return (
-        <div>
-            I am the sign up page
-        </div>
+        <NarrowContainer innerClassName='max-w-lg'>
+            <AuthForm 
+                formType='signup'
+                searchParams={searchParams}
+            />
+        </NarrowContainer>
     )
 }

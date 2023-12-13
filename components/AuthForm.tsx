@@ -3,6 +3,7 @@ import { headers, cookies } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
+
 interface Props {
     searchParams: { message: string },
     formType: 'login' | 'signup'
