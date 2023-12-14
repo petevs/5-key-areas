@@ -5,7 +5,7 @@ import AuthButton from '@/components/AuthButton'
 
 export default function Header() {
     return (
-        <div className='border-b p-4 flex justify-between items-center'>
+        <div className='sticky top-0 bg-white border-b p-4 flex justify-between items-center'>
 
 
             <div>

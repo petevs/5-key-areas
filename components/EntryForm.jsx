@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { addNewEntry } from '@/actions/general'
+import Link from "next/link"
 
 
 const formSchema = z.object({
@@ -71,11 +72,11 @@ export default function EntryForm() {
         },
       })
 
-    function onSubmit() {
+    async function onSubmit() {
 
         const values = form.getValues()
 
-        addNewEntry({
+        await addNewEntry({
             health: values.health,
             work: values.work,
             play: values.play,
@@ -121,8 +122,14 @@ export default function EntryForm() {
                 />
             ))
         }
-
-        <Button type="submit">Submit</Button>
+        <div className='flex justify-between'>
+            <Button variant='ghost' asChild>
+                <Link href='/dashboard'>
+                    Cancel
+                </Link>
+            </Button>
+            <Button type="submit">Submit</Button>
+        </div>
       </form>
     </Form>
   )

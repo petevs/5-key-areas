@@ -26,10 +26,10 @@ export default async function page() {
 
 
     return (
-        <NarrowContainer>
-            <Chart 
-                data={entries}
-            />
-        </NarrowContainer>
+            <NarrowContainer className='shadow rounded-lg border bg-white'>
+                <Chart 
+                    data={entries}
+                />
+            </NarrowContainer>
     )
 }

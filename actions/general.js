@@ -25,6 +25,43 @@ export const addNewEntry = async (data) => {
 
 
     if (error) throw error
+
+
+    revalidatePath('/dashboard')
     
     return true
 }
+
+
+
+export const updateUserDetails = async (data) => {
+
+    const cookieStore = cookies()
+    const supabase = createClient(cookieStore)
+    
+    const {
+        data: { user },
+    } = await supabase.auth.getUser()
+
+    try {
+    
+        const { error } = await supabase
+            .from('users')
+            .update(
+                {
+                    ...data,
+                })
+            .eq('id', user.id)
+
+    } catch(error) {
+        throw error
+    }
+
+    revalidatePath('/dashboard')
+
+    return true
+
+}
+
+    
+

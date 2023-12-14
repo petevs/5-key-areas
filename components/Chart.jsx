@@ -1,6 +1,6 @@
 'use client'
 
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, ResponsiveContainer, Tooltip } from 'recharts';
 
 export default function Chart({ data }) {
 
@@ -14,6 +14,7 @@ export default function Chart({ data }) {
                 <Line type="monotone" dataKey="play" stroke="#8884d8" />
                 <Line type="monotone" dataKey="love" stroke="#8884d8" />
                 <Line type="monotone" dataKey="self_respect" stroke="#8884d8" />
+                <Tooltip />
                 <CartesianGrid stroke="#ccc" />
                 <XAxis dataKey="created_at" />
                 <YAxis />
