@@ -3,9 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-import { Slider } from "@/components/ui/slider"
-import { Input } from "@/components/ui/input"
-
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -26,8 +23,7 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 
-import { updateUserDetails } from '@/actions/general'
-import Link from "next/link"
+import { updateNotifications } from '@/actions/general'
 
 
 const formSchema = z.object({
@@ -54,13 +50,12 @@ export default function NotificationsForm({ initialSettings }) {
 
         const values = form.getValues()
 
-        await updateUserDetails({
-            username: values.username
+        await updateNotifications({
+            contact_frequency: values.contact_frequency,
+            contact_day_of_week: values.contact_day_of_week,
+            date_now: new Date(),
         })
 
-        form.reset({
-            username: values.username
-        })
     }
 
   return (
