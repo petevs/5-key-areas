@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation"
 import { handleSignOut } from '@/actions/auth'
   
 
-export default function AvatarDropdown() {
+export default function AvatarDropdown({ user, userDetails }) {
 
     const path = usePathname()
 
@@ -26,14 +26,14 @@ export default function AvatarDropdown() {
                     <Menu size={18} />
                     <div className='h-7 w-7 bg-gray-100 rounded-full flex items-center justify-center font-medium text-xs relative'>
                         <span className='text-gray-400 uppercase'>
-                            PV
+                            {user?.email[0]}
                         </span>
                     </div>
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent align='end' className='w-48'>
                 <div className='text-xs px-2 pt-2 text-gray-500'>Signed in as</div>
-                <DropdownMenuLabel>email@email.com</DropdownMenuLabel>
+                <DropdownMenuLabel>{user?.email}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
                 <DropdownMenuItem asChild>

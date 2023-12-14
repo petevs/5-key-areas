@@ -32,6 +32,8 @@ export default function UpcomingDates({ initialDates, totalCount, userID }) {
     
     }
 
+    console.log(upcoming.length, totalCount)
+
     useEffect(() => {
         setUpcoming(initialDates)
     }
@@ -53,18 +55,21 @@ export default function UpcomingDates({ initialDates, totalCount, userID }) {
                 )
             }
 
-            <div className='pt-8 flex justify-center'>
-                <Button
-                    variant='secondary'
-                    onClick={loadMore}
-                    disabled={upcoming?.length === totalCount}
-                >
-                    {
-                        loading ? 'Loading...' : 'Load More'
-                    }
-                </Button>
+            {
+                upcoming?.length !== totalCount &&
+                <div className='pt-8 flex justify-center'>
+                    <Button
+                        variant='secondary'
+                        onClick={loadMore}
+                        disabled={upcoming?.length === totalCount}
+                    >
+                        {
+                            loading ? 'Loading...' : 'Load More'
+                        }
+                    </Button>
 
-            </div>
+                </div>
+            }
         </div>
     )
 }
