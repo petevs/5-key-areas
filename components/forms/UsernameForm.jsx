@@ -25,13 +25,13 @@ const formSchema = z.object({
 })
 
 
-export default function EntryForm() {
+export default function UsernameForm({ initialUsername }) {
   
 
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: ""
+            username: initialUsername || ""
         },
       })
 
@@ -40,6 +40,10 @@ export default function EntryForm() {
         const values = form.getValues()
 
         await updateUserDetails({
+            username: values.username
+        })
+
+        form.reset({
             username: values.username
         })
     }

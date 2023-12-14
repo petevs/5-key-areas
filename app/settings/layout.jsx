@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { cookies } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
+import SettingsNavBar from "./components/SettingsNavBar";
 
 export default async function layout({children}) {
 
@@ -25,11 +26,7 @@ export default async function layout({children}) {
 
             <div className='pt-8'>
 
-                <div className='flex gap-4'>
-                    <Link href='/settings' className='pb-2 border-b-2 border-blue-500'>
-                        General
-                    </Link>
-                </div>
+                <SettingsNavBar />
 
             </div>
             <div className='py-8'>

@@ -83,6 +83,8 @@ export default function EntryForm() {
             love: values.love,
             self_respect: values.selfRespect
         })
+
+        form.reset()
         
     }
 

@@ -45,13 +45,17 @@ export const updateUserDetails = async (data) => {
 
     try {
     
-        const { error } = await supabase
-            .from('users')
+        const { data: updated, error } = await supabase
+            .from('profiles')
             .update(
                 {
                     ...data,
                 })
             .eq('id', user.id)
+            .select()
+
+        console.log(updated)
+        console.log(error)
 
     } catch(error) {
         throw error

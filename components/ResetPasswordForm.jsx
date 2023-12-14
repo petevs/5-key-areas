@@ -1,83 +1,102 @@
 'use client'
 
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
 import { updatePassword } from '@/actions/auth'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+
+
+const formSchema = z.object({
+    password: z.string()
+      .min(8, "Password must be at least 8 characters long") // Increase minimum length
+      .max(100, "Password must be less than 100 characters long")
+      .regex(/[a-z]/, "Password must contain at least one lowercase letter")
+      .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+      .regex(/[0-9]/, "Password must contain at least one number")
+      .regex(/[^a-zA-Z0-9]/, "Password must contain at least one special character")
+  });
 
 export default function ResetPasswordForm() {
 
-    const [password, setPassword] = useState('')
+    const form = useForm({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            password: ''
+        },
+      })
+
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     const [successMessage, setSuccessMessage] = useState(null)
 
-    const handleSubmit = async (e) => {
-          e.preventDefault()
+    async function onSubmit() {
+          
+
+        const password = form.getValues().password
+
           const { error } = await updatePassword(password)
   
-          if(error) {
-              setError(error)
-              return
-          }
+          form.reset('')
 
-          setPassword('')
-          setLoading(false)
-          setSuccessMessage('Password updated successfully.')
     }
 
 
     return (
-      <>
-      
-        <form
-              className="animate-in grid grid-flow-row gap-2 text-foreground"
-              onSubmit={handleSubmit}
+        <Form {...form}>
+            <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
+                <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field, fieldState }) => (
+                        <FormItem>
+                        <FormLabel>Password</FormLabel>
+                        <FormControl>
+                            <Input 
+                                type="password"
+                                placeholder="********" 
+                                {...field} 
+                                autoComplete="off"
+                                required
+                            />
+                        </FormControl>
+                        <FormMessage>
+                            {fieldState.error?.message}
+                        </FormMessage>
+                        </FormItem>
+                    )}
+                />
+        
+        <div>
+            <Button 
+                type="submit" 
+                className='h-8 rounded-full' 
+                disabled={!form.formState.isDirty || form.formState.isSubmitting}
             >
+                Submit
+            </Button>
+            <Button 
+                type="reset" 
+                variant="ghost" 
+                className='ml-2 h-8 rounded-full' 
+                disabled={!form.formState.isDirty || form.formState.isSubmitting}
+            >
+                Cancel
+            </Button>
+        </div>
 
-                <Label className="text-md" htmlFor="password">
-                Password
-              </Label>
-              <Input
-                className="rounded-md px-4 py-2 bg-inherit border mb-6"
-                type="password"
-                name="password"
-                placeholder="••••••••"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete='off'
-              />
-
-
-                <Button 
-                    className="justify-self-start h-8 rounded-full text-sm"
-                    type='submit'
-                >
-                        {
-                            loading ? 'Updating...' : 'Update'
-                        }
-                </Button>
             </form>
-
-            {
-                error && (
-                    <div className='text-destructive pt-4 text-sm'>
-                        {error.message}
-                    </div>
-                )
-            }
-
-            {
-                successMessage && (
-                    <div className='text-primary pt-4 text-sm'>
-                        {successMessage}
-                    </div>
-                )
-            }
-
-
-      </>
+        </Form>
     )
 }
