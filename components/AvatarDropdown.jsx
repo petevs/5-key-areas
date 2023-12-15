@@ -41,6 +41,11 @@ export default function AvatarDropdown({ user, userDetails }) {
                         Dashboard
                     </Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                    <Link href='/dashboard/new-entry' className='w-full hover:cursor-pointer'>
+                        New Entry
+                    </Link>
+                </DropdownMenuItem>
                 
                 <DropdownMenuItem asChild>
                     <Link href='/settings' className='w-full hover:cursor-pointer'>

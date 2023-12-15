@@ -17,7 +17,7 @@ export default async function layout({children}) {
 
 
     return (
-        <div className='bg-gray-100 min-h-[100dvh] py-10'>
+        <div className='min-h-[calc(100dvh_-_73px)] bg-gray-50 py-10'>
             {children}
         </div>
     )

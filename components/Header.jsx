@@ -5,6 +5,7 @@ import AuthButton from '@/components/AuthButton'
 import Image from 'next/image'
 import { Bebas_Neue } from 'next/font/google'
 import { cn } from '@/lib/utils'
+import { Suspense } from 'react'
 
 
 const rubik = Bebas_Neue({
@@ -29,16 +30,9 @@ export default function Header() {
 
 
             <div className='flex gap-4 items-center'>
-                <Button variant='ghost' className='rounded-full border' asChild>
-                    <Link href='/dashboard/new-entry'>
-                        <div className='flex items-center gap-1'>
-                            <Plus size={14} />
-                            New Entry
-                        </div>
-                    </Link>
-                </Button>
-
-                <AuthButton />
+                <Suspense fallback={<div className='h-10'></div>}>
+                    <AuthButton />
+                </Suspense>
             </div>
         </div>
     )

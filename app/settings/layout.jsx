@@ -5,6 +5,7 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import SettingsNavBar from "./components/SettingsNavBar";
 import { UserProvider } from "./components/UserProvider";
+import PageHeading from "@/components/PageHeading";
 
 export default async function layout({children}) {
 
@@ -24,7 +25,7 @@ export default async function layout({children}) {
     return (
         <UserProvider profile={user}>
             <NarrowContainer innerClassName='max-w-3xl'>
-                <h1 className='text-3xl font-bold'>Settings</h1>
+                <PageHeading>Settings</PageHeading>
 
                 <div className='pt-8'>
 
