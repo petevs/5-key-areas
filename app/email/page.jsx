@@ -4,7 +4,7 @@ import NarrowContainer from '@/components/NarrowContainer'
 
 export default function page() {
 
-    const emailHtml = render(<NotificationEmail name='Pete' />)
+    const emailHtml = render(<NotificationEmail username='pvs' frequency='monthly' />)
 
     return (
         <NarrowContainer>

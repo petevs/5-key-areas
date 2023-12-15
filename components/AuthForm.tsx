@@ -54,7 +54,7 @@ export default function AuthForm(props: Props) {
     
         if (error) {
           console.log(error)
-          return redirect('/signup?message=Could not authenticate user')
+          return redirect(`/signup?message=${error.message}`)
         }
     
         return redirect('/signup?message=Check email to continue sign in process')
