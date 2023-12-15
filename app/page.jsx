@@ -12,7 +12,7 @@ export default function page() {
 
             <div className='flex flex-col gap-4'>
 
-                <h1 className='text-5xl font-bold'>Resolutions Suck! Staying on Track is Hard!</h1>
+                <h1 className='text-5xl font-bold'>Resolutions Suck!</h1>
                 <h4 className='text-2xl font-bold'>If only there was a better way...</h4>
 
                 <article className='text-lg flex flex-col gap-8 py-4'>
@@ -187,7 +187,7 @@ export default function page() {
                         </div>
                     </div>
 
-                    <h2 className='text-3xl font-bold'>Here's one of my previous ones:</h2>
+                    <h2 className='text-3xl font-bold'>Here's an example:</h2>
 
                     <div className='h-96 bg-gray-50 border rounded-lg shadow'>
                         This will be a form example
