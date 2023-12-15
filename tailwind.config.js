@@ -25,6 +25,11 @@ module.exports = {
         blueBG: "#F4FAFE",
         blueT: "#014187",
         blueBorder: "#209BDF",
+        health: "#49B6DD",
+        work: "#FF9FA0",
+        play: "#23BBA2",
+        love: "#FC032C",
+        self_respect: "#39BAD7",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

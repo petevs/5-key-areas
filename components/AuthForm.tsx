@@ -29,10 +29,10 @@ export default function AuthForm(props: Props) {
         })
     
         if (error) {
-          return redirect('/signin?message=Could not authenticate user')
+          return redirect(`/signin?message=${error.message}`)
         }
     
-        return redirect('/')
+        return redirect('/dashboard')
       }
     
       const signUp = async (formData: FormData) => {

@@ -8,6 +8,7 @@ import CalendarPicker from '@/components/CalendarPicker'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Briefcase, Dribbble, HeartHandshake, HeartPulse, Plus, UserCheck } from 'lucide-react'
+import DashboardNav from './components/DashboardNav'
 
 export default async function page() {
 
@@ -26,7 +27,7 @@ export default async function page() {
         .from('entries')
         .select('*')
         .eq('user_id', user.id)
-        .order('created_at', { ascending: false })
+        .order('created_at', { ascending: true })
 
 
     const formattedEntries = entries.map(entry => { 
@@ -99,6 +100,11 @@ export default async function page() {
 
                 </div>
 
+
+                <div className="pb-4">
+                    <DashboardNav />
+                </div>
+
                 <div className='grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-4 pb-4'>
 
                     {
@@ -108,11 +114,11 @@ export default async function page() {
                                     <h3 className='tracking-tight text-sm font-medium'>{name}</h3>
                                     {icon}
                                 </div>
-                                <div class="p-6 pt-0">
-                                    <div class="text-2xl font-bold">
+                                <div className="p-6 pt-0">
+                                    <div className="text-2xl font-bold">
                                         {value}
                                     </div>
-                                    <p class="text-xs text-muted-foreground">{change}</p>
+                                    <p className="text-xs text-muted-foreground">{change}</p>
                                 </div>
                             </div>
                         ))
@@ -123,10 +129,10 @@ export default async function page() {
                 <div className='grid lg:grid-cols-[2fr,1fr] grid-cols-1 gap-4'>
 
                     <div className='border rounded-lg shadow'>
-                        <div class="flex flex-col space-y-1.5 p-6">
+                        <div className="flex flex-col space-y-1.5 p-6">
                             <h3 className='font-semibold leading-none tracking-tight'>Overview</h3>
                         </div>
-                        <div class="p-6 pt-0 pl-2">
+                        <div className="p-6 pt-0 pl-2">
                             <Chart 
                                 data={formattedEntries}
                             />
@@ -134,9 +140,9 @@ export default async function page() {
                     </div>
 
                     <div className='border rounded-lg shadow'>
-                        <div class="flex flex-col space-y-1.5 p-6">
+                        <div className="flex flex-col space-y-1.5 p-6">
                             <h3 className='font-semibold leading-none tracking-tight'>Entries</h3>
-                            <p class="text-sm text-muted-foreground">You've done 12 entries, so far.</p>
+                            <p className="text-sm text-muted-foreground">You've done 12 entries, so far.</p>
                         </div>
                     </div>
 
