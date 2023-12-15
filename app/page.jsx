@@ -139,8 +139,58 @@ export default function page() {
 
 
                     <div>
-                        <h3 className='text-2xl font-bold'>It doesn't matter what the numbers are.</h3>
-                        <h4 className='text-lg font-semibold'>What matters is taking a minute to stop being so busy...using this as a moment to reflect and get a snapshot of where are you now.</h4>
+                        <h3 className='text-2xl font-bold italic'>It doesn't matter what the numbers are.</h3>
+                        <h4 className='text-lg font-semibold italic'>What matters is taking a minute to stop being so busy...using this as a moment to reflect and get a snapshot of where are you now.</h4>
+                    </div>
+
+                    <p>
+                        <strong>Note - a 5 doesn't mean you "made it" or it's "done".</strong> It's all about momentum & trajectory. You can be at a 5 even if there's still more work to go.
+                    </p>
+
+                    <p>
+                        <strong>Health</strong> is my biggest winner this year. Last year I was the fattest I've ever been (220lbs), and had terrible eating & exercise habits. I was at a two in health. A 1 would be if I'm sick or have a disease, so last year was just a notch above that.
+                    </p>
+
+                    <p>
+                        This year I turned things around in August, and now am working out 6x a week and eating clean. I jumped from a 2 to a 4.
+                    </p>
+
+                    <p>
+                    <strong>Work for me</strong> is about picking the <strong>right thing</strong> (project selection) to work on and THEN feeling like I'm making <strong>a lot of progress.</strong> I gave myself a 4.5/5, really happy with this.
+                    </p>
+
+                    <p>
+                    <strong>Play</strong> is the stuff you do for fun. There is no goal. The reward is doing the activity itself. For me this is often working, but also other things (eg. reading, playing sports, watching basketball, etc.).
+                    </p>
+
+                    <p>
+                    <strong>Love</strong> is a tough one - because it takes into account a whole bunch of relationships. I'm a son, brother, husband, father and friend. I noticed some slippage this year. I started getting "comfortable" at home, and not bringing my A-game like I did when I first met my wife.
+                    </p>
+
+                    <p>
+                    I subscribe to the belief that "if you do what you did at the beginning, there will never be an end" in relationships. So I gotta get back to that "first date shaan" on a regular basis.
+                    </p>
+
+                    <p>
+                    <strong>Self-Respect</strong> - This isn't from the book, I added this myself. I found that even if evreything is going great on the surface, if I felt shitty about myself, then I felt shitty. How do I feel about myself? Do I like the person I'm becoming?
+                    </p>
+
+                    For my high scores, I write a keep doing and for my low scores, I write a start doing.
+
+                    <div>
+                        <h3 className='text-xl font-bold'>OK now that I have my score, I do one last thing.</h3>
+                        <div className='pt-8 flex flex-col text-center gap-8'>
+                            <h4 className='text-sm font-semibold'>For my high scores, I write a...<br /> <span className='font-bold text-3xl'>KEEP DOING</span></h4>
+                            <h4 className='text-sm font-semibold'>For my low scores, I write a...
+                            <br /> <span className='font-bold text-3xl'>START DOING</span>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <h2 className='text-3xl font-bold'>Here's one of my previous ones:</h2>
+
+                    <div className='h-96 bg-gray-50 border rounded-lg shadow'>
+                        This will be a form example
                     </div>
 
 

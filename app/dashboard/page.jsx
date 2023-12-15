@@ -146,7 +146,116 @@ export default async function page() {
                         </div>
                     </div>
 
+
                 </div>
+
+                <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 pt-4'>
+
+                    <div className='border rounded-lg shadow p-6'>
+
+                        <h3 className='font-semibold leading-none tracking-tight pb-6'>Keep Doing</h3>
+
+                        <div className='flex flex-col gap-6 text-sm'>
+
+
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Health</h3>
+                                <p className='text-muted-foreground'>
+                                    Keep doing personal training w/ JA. 6 days of exercise +clean diet = win (just keep going)
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Work</h3>
+                                <p className='text-muted-foreground'>
+                                    {`keep doing content consistently. Long term, I want to teach millions of people about business.
+                                    ​
+                                    This year:
+                                    Podcast: 1.5M downloads --> 3.3M downloads (2x)
+
+                                    Newsletter: 0 subscribers --> 15k subscribers (15x)
+
+                                    Twitter: 8k followers --> 42k followers (5x)
+                                    ​
+                                    Just keep pumping out content.`}
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Play</h3>
+                                <p className='text-muted-foreground'>
+                                    Start doing reading instead of tiktok at night.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Love</h3>
+                                <p className='text-muted-foreground'>
+                                start doing a blackout period from 530-730pm everyday where I have no phone, and just spend quality time with the family. Tell all my business partners about the blackout so they know not to reach me.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Self-Respect</h3>
+                                <p className='text-muted-foreground'>
+                                    keep doing my 10min mindset training every morning before I start work to put myself in a phenomenal state of mind.
+                                </p>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+
+                    <div className='border rounded-lg shadow p-6'>
+
+                        <h3 className='font-semibold leading-none tracking-tight pb-6'>Start Doing</h3>
+
+                        <div className='flex flex-col gap-6 text-sm'>
+
+
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Health</h3>
+                                <p className='text-muted-foreground'>
+                                    Keep doing personal training w/ JA. 6 days of exercise +clean diet = win (just keep going)
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Work</h3>
+                                <p className='text-muted-foreground'>
+                                    {`keep doing content consistently. Long term, I want to teach millions of people about business.
+                                    ​
+                                    This year:
+                                    Podcast: 1.5M downloads --> 3.3M downloads (2x)
+
+                                    Newsletter: 0 subscribers --> 15k subscribers (15x)
+
+                                    Twitter: 8k followers --> 42k followers (5x)
+                                    ​
+                                    Just keep pumping out content.`}
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Play</h3>
+                                <p className='text-muted-foreground'>
+                                    Start doing reading instead of tiktok at night.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Love</h3>
+                                <p className='text-muted-foreground'>
+                                start doing a blackout period from 530-730pm everyday where I have no phone, and just spend quality time with the family. Tell all my business partners about the blackout so they know not to reach me.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='tracking-tight font-medium'>Self-Respect</h3>
+                                <p className='text-muted-foreground'>
+                                    keep doing my 10min mindset training every morning before I start work to put myself in a phenomenal state of mind.
+                                </p>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
             </NarrowContainer>
     )
 }
