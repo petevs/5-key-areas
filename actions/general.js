@@ -4,6 +4,8 @@ import { cookies } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { getNextContactDates } from '@/lib/helpers'
+import { createServerClient } from '@supabase/ssr'
+import { redirect } from 'next/dist/server/api-utils'
 
 
 export const addNewEntry = async (data) => {
@@ -117,6 +119,62 @@ export const updateNotifications = async (data) => {
     revalidatePath('/dashboard')
 
 }
+
+
+export const deleteUser = async () => {
+
+    const cookieStore = cookies()
+
+    const supabase = createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL,
+        process.env.SUPABASE_KEY,
+        {
+          cookies: {
+            get(name) {
+              return cookieStore.get(name)?.value
+            },
+            set(name, value, options) {
+              cookieStore.set({ name, value, ...options })
+            },
+            remove(name, options) {
+              cookieStore.set({ name, value: '', ...options })
+            },
+          },
+        }
+    )
+
+    const {
+        data: { user },
+    } = await supabase.auth.getUser()
+
+    // delete all existing notifications
+    const { error: entriesError } = await supabase
+        .from('entries')
+        .delete()
+        .eq('user_id', user.id)
+
+    if (entriesError) throw entriesError
+
+    // delete all existing notifications
+
+    const { error: notificationsError } = await supabase
+        .from('scheduled_notifications')
+        .delete()
+        .eq('user_id', user.id)
+
+    if (notificationsError) throw notificationsError
+
+    // sign out user first
+    await supabase.auth.signOut()
+
+    const { error } = await supabase.auth.admin.deleteUser(user.id)
+
+    if (error) throw error
+
+    redirect('/')
+
+}
+
 
 
 
