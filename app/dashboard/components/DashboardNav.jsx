@@ -6,7 +6,7 @@ export default function DashboardNav() {
         <Tabs defaultValue="account" className="w-[400px]">
             <TabsList>
                 <TabsTrigger value="account">Overview</TabsTrigger>
-                <TabsTrigger value="report">Report</TabsTrigger>
+                <TabsTrigger value="report">Analysis</TabsTrigger>
                 <TabsTrigger value="entries">Entries</TabsTrigger>
             </TabsList>
         </Tabs>

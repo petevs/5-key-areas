@@ -103,7 +103,7 @@ export default function page() {
 
                     <h2 className='text-4xl font-bold'>OK - so what the heck is a "well designed life?"</h2>
 
-                    <p>It turns out there's ~4-5 main areas of life that matter:</p>
+                    <p>It turns out there's 5 key areas of life that matter:</p>
 
                     <ol className='ml-8'>
                         <li><strong>1. Health</strong> - your body & brain</li>
@@ -114,7 +114,7 @@ export default function page() {
                     </ol>
 
                     <p>
-                        Every year on Dec 31st, I sit down and reflect on how each of those areas are going in my life.
+                        So instead of coming up with grandiose big new year's resolutions, I sit down and reflect on how each of those areas are going in my life.
                     </p>
 
                     <div className='flex justify-center'>

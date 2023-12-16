@@ -7,8 +7,9 @@ import PageHeading from '@/components/PageHeading'
 import CalendarPicker from '@/components/CalendarPicker'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Briefcase, Dribbble, HeartHandshake, HeartPulse, Plus, UserCheck } from 'lucide-react'
+import { Briefcase, Dribbble, Heart, HeartHandshake, HeartPulse, Plus, UserCheck } from 'lucide-react'
 import DashboardNav from './components/DashboardNav'
+import { format } from 'path'
 
 export default async function page() {
 
@@ -142,7 +143,43 @@ export default async function page() {
                     <div className='border rounded-lg shadow'>
                         <div className="flex flex-col space-y-1.5 p-6">
                             <h3 className='font-semibold leading-none tracking-tight'>Entries</h3>
-                            <p className="text-sm text-muted-foreground">You've done 12 entries, so far.</p>
+                            <p className="text-sm text-muted-foreground pb-2">You've made {formattedEntries.length} entries, so far.</p>
+
+                            <div className='max-h-80 overflow-y-scroll'>
+
+                                <div className='flex flex-col'>
+                                    {
+                                        formattedEntries.map((entry) => (
+                                            <div key={entry.id} className="grid grid-flow-row gap-1 border-b py-4 hover:cursor-pointer">
+                                                <div className="text-sm font-medium">{entry.created_at}</div>
+                                                <div className='flex gap-4'>
+                                                    <div className="text-sm text-muted-foreground flex items-center gap-1">
+                                                        <Heart className='h-4 w-4 inline-block' />
+                                                        {entry.health}
+                                                    </div>
+                                                    <div className="text-sm text-muted-foreground flex items-center gap-1">
+                                                        <Briefcase className='h-4 w-4 inline-block' />
+                                                        {entry.work}
+                                                    </div>
+                                                    <div className="text-sm text-muted-foreground flex items-center gap-1">
+                                                        <Dribbble className='h-4 w-4 inline-block' />
+                                                        {entry.play}
+                                                    </div>
+                                                    <div className="text-sm text-muted-foreground flex items-center gap-1">
+                                                        <HeartHandshake className='h-4 w-4 inline-block' />
+                                                        {entry.love}
+                                                    </div>
+                                                    <div className="text-sm text-muted-foreground flex items-center gap-1">
+                                                        <UserCheck className='h-4 w-4 inline-block' />
+                                                        {entry.self_respect}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+
+                            </div>
                         </div>
                     </div>
 
