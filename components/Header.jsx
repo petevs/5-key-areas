@@ -16,7 +16,7 @@ const rubik = Bebas_Neue({
 
 export default function Header() {
     return (
-        <div className='sticky top-0 bg-white border-b p-4 flex justify-between items-center'>
+        <div className='sticky h-20 top-0 bg-white border-b p-4 flex justify-between items-center'>
 
 
             <div>
