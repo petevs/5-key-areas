@@ -41,8 +41,10 @@ export default function EntryForm() {
 
   return (
     <div className='lg:w-[32rem] w-full lg:p-0 p-6'>
+
         <Form {...form}>
             <form className="space-y-8 px-6 py-12 border shadow rounded-lg">
+              <h2 className='text-2xl font-bold'>Scorecard</h2>
 
                 {inputs.map(({ name, label, type }, idx) => (
                     <FormField

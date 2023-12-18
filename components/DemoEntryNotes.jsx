@@ -26,7 +26,7 @@ const inputs = [
     {
       name: "self_respect",
       label: "Self-Respect",
-      value: `Self-Respect - This isn't from the book, I added this myself. I found that even if evreything is going great on the surface, if I felt shitty about myself, then I felt shitty. How do I feel about myself? Do I like the person I'm becoming?`
+      value: `Self-Respect - This isn't from the book, I added this myself. I found that even if everything is going great on the surface, if I felt shitty about myself, then I felt shitty. How do I feel about myself? Do I like the person I'm becoming?`
     },
   ];
 
