@@ -13,11 +13,11 @@ import { Label } from "@/components/ui/label"
 
 export default function DemoFrequencyForm() {
     return (
-        <div className='space-y-8 px-6 py-12 border shadow rounded-lg'>
-            <div>
-                <Label>Frequency</Label>
+        <div className='flex flex-col gap-8'>
+            <div className='flex flex-col gap-2'>
+                <Label className='text-lg font-light'>Frequency</Label>
                 <Select defaultValue='weekly'>
-                    <SelectTrigger>
+                    <SelectTrigger className='border-primary'>
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -31,10 +31,10 @@ export default function DemoFrequencyForm() {
                     How often do you want to see a reminder to make an entry?
                 </div>
             </div>
-            <div>
-                <Label>Day of Week</Label>
+            <div className='flex flex-col gap-2'>
+                <Label className='text-lg font-light'>Day of Week</Label>
                 <Select defaultValue='monday'>
-                    <SelectTrigger>
+                    <SelectTrigger className='border-primary'>
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
