@@ -1,23 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 
 export default function page() {
     return (
-        <div className='grid grid-cols-2 w-full max-h-96'>
+        <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 w-full h-[calc(100dvh-11rem)]'>
 
-            <div className=''>
-
-                <Image src='/broken_promises.webp' width={500} height={500} alt='broken promises' className='rounded-lg shadow-xl' />
-                        
-                {/* <div>
-                    <h1 className='text-5xl font-bold'>Resolutions Suck!</h1>
-                    <h4 className='text-2xl font-bold'>If only there was a better way...</h4>
-                </div> */}
-
+            <div className='lg:flex hidden items-center justify-center'>
+                <Image src='/broken_promises.webp' width={450} height={450} alt='broken promises' className='rounded-lg shadow-xl' />
             </div>
 
-            <div className='overflow-y-scroll flex flex-col gap-4'>
+            <div className='flex flex-col gap-4 lg:h-full h-[calc(100dvh-11rem)] overflow-y-scroll lg:py-20 py-10 px-10'>
 
                 <h1 className='text-5xl font-bold'>Resolutions Suck!</h1>
                 <h4 className='text-2xl font-bold'>If only there was a better way...</h4>
@@ -68,7 +62,7 @@ export default function page() {
                         ​The book starts with 3 big myths.
                     </p>
 
-                    <h2 className='text-4xl font-bold'>The 3 Myths</h2>
+                    <h2 className='text-4xl font-bold pt-4'>The 3 Myths</h2>
 
                     <div>
                         <h3 className='text-xl font-bold'>
@@ -103,7 +97,7 @@ export default function page() {
                         </h3>
                     </div>
 
-                    <h2 className='text-4xl font-bold'>OK - so what the heck is a "well designed life?"</h2>
+                    <h2 className='text-4xl font-bold pt-4'>OK - so what the heck is a "well designed life?"</h2>
 
                     <p>It turns out there's 5 key areas of life that matter:</p>
 
@@ -119,8 +113,8 @@ export default function page() {
                         So instead of coming up with grandiose big new year's resolutions, I sit down and reflect on how each of those areas are going in my life.
                     </p>
 
-                    <Button variant='link' asChild className='self-end'>
-                        <Link href='/test/1' className='text-right'>
+                    <Button variant='link' asChild className='self-end mt-4'>
+                        <Link href='/test/1' className='text-right text-xl'>
                             Let me show you how I do it {`->`}
                         </Link>
                     </Button>
