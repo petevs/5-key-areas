@@ -10,8 +10,6 @@ export default function ScoreButton({ area }) {
 
     const { scores, updateScore } = useContext(EntryContext)
 
-    console.log(area)
-
     return (
         <div className='flex gap-4 items-center text-foreground'>
             <button 

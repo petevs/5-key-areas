@@ -14,11 +14,18 @@ export const EntryProvider = ({ profile, children }) => {
             love_score: 3,
             self_respect_score: 3,
         },
-        health_note: '',
-        work_note: '',
-        play_note: '',
-        love_note: '',
-        self_respect_note: '',
+        notes_modal_open: false,
+        notes_modal_key: '',
+        notes: {
+            health_note: 'testings this and that',
+            work_note: '',
+            play_note: '',
+            love_note: '',
+            self_respect_note: '',
+        },
+        keep_doing: [],
+        start_doing: [],
+
     });
 
     const updateScore = (key, value) => {
@@ -29,11 +36,36 @@ export const EntryProvider = ({ profile, children }) => {
         })
     }
 
+    const openNotesModal = (key) => {
+        dispatch({
+            type: 'OPEN_NOTES_MODAL',
+            key,
+        })
+    }
+
+    const closeNotesModal = () => {
+        dispatch({
+            type: 'CLOSE_NOTES_MODAL',
+        })
+    }
+
+    const updateNote = (key, value) => {
+        dispatch({
+            type: 'UPDATE_NOTE',
+            key,
+            value,
+        })
+    }
+    
+
     return (
         <EntryContext.Provider 
             value={{
                 ...state,
                 updateScore,
+                openNotesModal,
+                closeNotesModal,
+                updateNote,
             }}
         >
             {children}
@@ -48,6 +80,26 @@ const reducer = (state, action) => {
                 ...state,
                 scores: {
                     ...state.scores,
+                    [action.key]: action.value,
+                }
+            }
+        case 'OPEN_NOTES_MODAL':
+            return {
+                ...state,
+                notes_modal_open: true,
+                notes_modal_key: action.key,
+            }
+        case 'CLOSE_NOTES_MODAL':
+            return {
+                ...state,
+                notes_modal_open: false,
+                notes_modal_key: '',
+            }
+        case 'UPDATE_NOTE':
+            return {
+                ...state,
+                notes: {
+                    ...state.notes,
                     [action.key]: action.value,
                 }
             }
