@@ -37,6 +37,8 @@ export const EntryProvider = ({ profile, children }) => {
             { area: 'love', text: '' },
             { area: 'self_respect', text: '' },
         ],
+        reminder_frequency: 'weekly',
+        reminder_day_of_week: 'sunday',
     });
 
     const updateScore = (key, value) => {
@@ -74,6 +76,27 @@ export const EntryProvider = ({ profile, children }) => {
             value: updatedKP,
         })
     }
+
+    const updateStartDoing = (updatedSD) => {
+        dispatch({
+            type: 'UPDATE_START_DOING',
+            value: updatedSD,
+        })
+    }
+
+    const updateReminderFrequency = (value) => {
+        dispatch({
+            type: 'UPDATE_REMINDER_FREQUENCY',
+            value: value,
+        })
+    }
+
+    const updateReminderDayOfWeek = (value) => {
+        dispatch({
+            type: 'UPDATE_REMINDER_DAY_OF_WEEK',
+            value: value,
+        })
+    }
     
 
     return (
@@ -85,6 +108,9 @@ export const EntryProvider = ({ profile, children }) => {
                 closeNotesModal,
                 updateNote,
                 updateKeepDoing,
+                updateStartDoing,
+                updateReminderFrequency,
+                updateReminderDayOfWeek,
             }}
         >
             {children}
@@ -126,6 +152,21 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 keep_doing: action.value,
+            }
+        case 'UPDATE_START_DOING':
+            return {
+                ...state,
+                start_doing: action.value,
+            }
+        case 'UPDATE_REMINDER_FREQUENCY':
+            return {
+                ...state,
+                reminder_frequency: action.value,
+            }
+        case 'UPDATE_REMINDER_DAY_OF_WEEK':
+            return {
+                ...state,
+                reminder_day_of_week: action.value,
             }
         default: return state;
     }
