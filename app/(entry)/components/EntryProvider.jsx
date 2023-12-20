@@ -17,15 +17,26 @@ export const EntryProvider = ({ profile, children }) => {
         notes_modal_open: false,
         notes_modal_key: '',
         notes: {
-            health_note: 'testings this and that',
+            health_note: '',
             work_note: '',
             play_note: '',
             love_note: '',
             self_respect_note: '',
         },
-        keep_doing: [],
-        start_doing: [],
-
+        keep_doing: [
+            { area: 'health', text: '' },
+            { area: 'work', text: '' },
+            { area: 'play', text: '' },
+            { area: 'love', text: '' },
+            { area: 'self_respect', text: '' },
+        ],
+        start_doing: [
+            { area: 'health', text: '' },
+            { area: 'work', text: '' },
+            { area: 'play', text: '' },
+            { area: 'love', text: '' },
+            { area: 'self_respect', text: '' },
+        ],
     });
 
     const updateScore = (key, value) => {
@@ -56,6 +67,13 @@ export const EntryProvider = ({ profile, children }) => {
             value,
         })
     }
+
+    const updateKeepDoing = (updatedKP) => {
+        dispatch({
+            type: 'UPDATE_KEEP_DOING',
+            value: updatedKP,
+        })
+    }
     
 
     return (
@@ -66,6 +84,7 @@ export const EntryProvider = ({ profile, children }) => {
                 openNotesModal,
                 closeNotesModal,
                 updateNote,
+                updateKeepDoing,
             }}
         >
             {children}
@@ -102,6 +121,11 @@ const reducer = (state, action) => {
                     ...state.notes,
                     [action.key]: action.value,
                 }
+            }
+        case 'UPDATE_KEEP_DOING':
+            return {
+                ...state,
+                keep_doing: action.value,
             }
         default: return state;
     }
